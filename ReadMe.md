@@ -4,5 +4,6 @@
  
  ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%kurnakovv%PriorityOrder&countColor=%23263759&style=flat)
  [![Build/Test](https://github.com/kurnakovv/PriorityOrder/actions/workflows/build-test.yml/badge.svg)](https://github.com/kurnakovv/PriorityOrder/actions/workflows/build-test.yml)
-
+ [![MIT License](https://img.shields.io/github/license/kurnakovv/PriorityOrder?color=%230b0&style=flat)](https://github.com/kurnakovv/PriorityOrder/blob/main/LICENSE)
+ 
 </div>
