@@ -4,6 +4,14 @@ using System;
 
 namespace PriorityOrder
 {
+    /// <summary>
+    /// Enumerable that contain order by priorities methods.<para/>
+    /// StackOverflow answers:<para/>
+    /// * <see href="https://stackoverflow.com/questions/12199668/in-c-what-is-the-best-way-to-sort-a-list-of-objects-by-a-string-property-and-g">Order by property name (string)</see><para/>
+    /// * <see href="https://stackoverflow.com/questions/42550992/c-sharp-sort-list-by-enum/77618384#77618384">Order list by enum</see><para/>
+    /// 
+    /// See also on <see href="https://github.com/kurnakovv/PriorityOrder">GitHub</see>
+    /// </summary>
     public static class PriorityEnumerable
     {
         /// <summary>
