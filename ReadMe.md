@@ -7,3 +7,7 @@
  [![MIT License](https://img.shields.io/github/license/kurnakovv/PriorityOrder?color=%230b0&style=flat)](https://github.com/kurnakovv/PriorityOrder/blob/main/LICENSE)
  
 </div>
+
+# Docs
+You can look at the full docs on [Wiki](https://github.com/kurnakovv/PriorityOrder/wiki)
+* [PriorityEnumerable.OrderByPriority(IEnumerable priorities)](https://github.com/kurnakovv/PriorityOrder/wiki/PriorityEnumerable.OrderByPriority(IEnumerable-priorities))
