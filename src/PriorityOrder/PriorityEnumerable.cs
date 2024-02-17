@@ -10,7 +10,7 @@ namespace PriorityOrder
     /// * <see href="https://stackoverflow.com/questions/12199668/in-c-what-is-the-best-way-to-sort-a-list-of-objects-by-a-string-property-and-g">Order by property name (string)</see><para/>
     /// * <see href="https://stackoverflow.com/questions/42550992/c-sharp-sort-list-by-enum/77618384#77618384">Order list by enum</see><para/>
     /// 
-    /// See also on <see href="https://github.com/kurnakovv/PriorityOrder">GitHub</see>
+    /// See also on <see href="https://github.com/kurnakovv/PriorityOrder/wiki">GitHub</see>
     /// </summary>
     public static class PriorityEnumerable
     {
@@ -37,7 +37,7 @@ namespace PriorityOrder
         /// * <see href="https://stackoverflow.com/questions/12199668/in-c-what-is-the-best-way-to-sort-a-list-of-objects-by-a-string-property-and-g">Order by property name (string)</see><para/>
         /// * <see href="https://stackoverflow.com/questions/42550992/c-sharp-sort-list-by-enum/77618384#77618384">Order list by enum</see><para/>
         /// 
-        /// See also on <see href="https://github.com/kurnakovv/PriorityOrder">GitHub</see>
+        /// See also on <see href="https://github.com/kurnakovv/PriorityOrder/wiki/PriorityEnumerable.OrderByPriority(IEnumerable-priorities)">GitHub</see>
         /// </remarks>
         /// 
         /// <typeparam name="TSource"><paramref name="source"/> type.</typeparam>
