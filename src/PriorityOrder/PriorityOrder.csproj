@@ -1,7 +1,44 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+		<PackageId>Kurnakov.PriorityOrder</PackageId>
+		<Title>PriorityOrder</Title>
+		<Authors>kurnakovv</Authors>
+		<Company>kurnakovv</Company>
+		<Product>PriorityOrder</Product>
+		<Description>PriorityOrder is an open source library that allows to order enumerable by priority.</Description>
+		<PackageProjectUrl>https://github.com/kurnakovv/PriorityOrder</PackageProjectUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageReadmeFile>ReadMeNuget.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/kurnakovv/PriorityOrder</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>Kurnakov kurnakovv PriorityOrder OrderByPriority</PackageTags>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<EnablePackageValidation>true</EnablePackageValidation>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\icon.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\..\ReadMeNuget.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
 
 </Project>
