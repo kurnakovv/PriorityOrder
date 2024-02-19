@@ -8,6 +8,9 @@
  
 </div>
 
+# Description
+PriorityOrder is an open source library that allows to order enumerable by priority.
+
 # Docs
 You can look at the full docs on [Wiki](https://github.com/kurnakovv/PriorityOrder/wiki)
 * [PriorityEnumerable.OrderByPriority(IEnumerable priorities)](https://github.com/kurnakovv/PriorityOrder/wiki/PriorityEnumerable.OrderByPriority(IEnumerable-priorities))
