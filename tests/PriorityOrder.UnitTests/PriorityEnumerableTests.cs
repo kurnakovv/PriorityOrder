@@ -67,7 +67,7 @@ namespace PriorityOrder.UnitTests
                 "Third category" 
             };
 
-            var result = _source.OrderByPriority(x => x.CategoryString, priorities).ToList();
+            List<Driver> result = _source.OrderByPriority(x => x.CategoryString, priorities).ToList();
 
             Assert.True(result.Take(3).All(x => x.CategoryString == "First category"));
             Assert.True(result.Skip(3).Take(3).All(x => x.CategoryString == "Second category"));
@@ -92,7 +92,7 @@ namespace PriorityOrder.UnitTests
                 DriverCategory.ThirdCategory 
             };
 
-            var result = source.OrderByPriority(x => x, priorities).ToList();
+            List<DriverCategory> result = source.OrderByPriority(x => x, priorities).ToList();
 
             Assert.Equal(DriverCategory.FirstCategory, result[0]);
             Assert.Equal(DriverCategory.SecondCategory, result[1]);
@@ -110,7 +110,7 @@ namespace PriorityOrder.UnitTests
                 DriverCategory.ThirdCategory
             };
 
-            var result = _source.OrderByPriority(x => x.CategoryEnum, priorities).ToList();
+            List<Driver> result = _source.OrderByPriority(x => x.CategoryEnum, priorities).ToList();
 
             Assert.True(result.Take(3).All(x => x.CategoryEnum == DriverCategory.FirstCategory));
             Assert.True(result.Skip(3).Take(3).All(x => x.CategoryEnum == DriverCategory.SecondCategory));
@@ -139,12 +139,37 @@ namespace PriorityOrder.UnitTests
             // Let's imagine, that you want to order by "000_NUMBER".
             IEnumerable<int> priorities = new List<int> { 345230001, -10002, 3430003, };
 
-            var result = _source.OrderByPriority(x => x.CategoryInt, priorities).ToList();
+            List<Driver> result = _source.OrderByPriority(x => x.CategoryInt, priorities).ToList();
 
             Assert.True(result.Take(3).All(x => x.CategoryInt == 345230001));
             Assert.True(result.Skip(3).Take(3).All(x => x.CategoryInt == -10002));
             Assert.True(result.Skip(6).Take(3).All(x => x.CategoryInt == 3430003));
             Assert.True(result.Last().CategoryInt == 0);
+        }
+
+        [Fact]
+        public void OrderByPriority_CanOrderByStringParams_OrderedEnumerable()
+        {
+            IEnumerable<string> source = new List<string> { "SUPER LOW", "LOW", "HIGH", "SUPER SUPER LOW", "MEDIUM" };
+
+            List<string> result = source.OrderByPriority(x => x, "HIGH", "MEDIUM", "LOW").ToList();
+
+            Assert.Equal("HIGH", result[0]);
+            Assert.Equal("MEDIUM", result[1]);
+            Assert.Equal("LOW", result[2]);
+            Assert.Equal("SUPER LOW", result[3]);
+            Assert.Equal("SUPER SUPER LOW", result[4]);
+        }
+
+        [Fact]
+        public void OrderByPriority_CanOrderByPropertyStringParams_OrderedEnumerable()
+        {
+            List<Driver> result = _source.OrderByPriority(x => x.CategoryString, "First category", "Second category", "Third category").ToList();
+
+            Assert.True(result.Take(3).All(x => x.CategoryString == "First category"));
+            Assert.True(result.Skip(3).Take(3).All(x => x.CategoryString == "Second category"));
+            Assert.True(result.Skip(6).Take(3).All(x => x.CategoryString == "Third category"));
+            Assert.True(result.Last().CategoryString == "None");
         }
     }
 }

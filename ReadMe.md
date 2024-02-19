@@ -11,3 +11,4 @@
 # Docs
 You can look at the full docs on [Wiki](https://github.com/kurnakovv/PriorityOrder/wiki)
 * [PriorityEnumerable.OrderByPriority(IEnumerable priorities)](https://github.com/kurnakovv/PriorityOrder/wiki/PriorityEnumerable.OrderByPriority(IEnumerable-priorities))
+* [PriorityEnumerable.OrderByPriority(params[] priorities)](https://github.com/kurnakovv/PriorityOrder/wiki/PriorityEnumerable.OrderByPriority(params%5B%5D-priorities))
