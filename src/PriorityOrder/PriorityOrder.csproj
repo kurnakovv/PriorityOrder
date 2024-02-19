@@ -13,7 +13,7 @@
 		<PackageReadmeFile>ReadMeNuget.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/kurnakovv/PriorityOrder</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>Kurnakov kurnakovv PriorityOrder OrderByPriority</PackageTags>
+		<PackageTags>Kurnakov kurnakovv PriorityOrder OrderByPriority OrderBy</PackageTags>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<EnablePackageValidation>true</EnablePackageValidation>
