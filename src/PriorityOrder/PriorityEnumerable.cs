@@ -79,9 +79,9 @@ namespace PriorityOrder
             }
             List<TKey> keys = source
                 .Select(keySelector)
-                .OrderBy(x => 
-                    priorityDict.TryGetValue(x, out int value) 
-                        ? value 
+                .OrderBy(x =>
+                    priorityDict.TryGetValue(x, out int value)
+                        ? value
                         : priorityDict.Count + 1
                 )
                 .ToList();
@@ -96,6 +96,52 @@ namespace PriorityOrder
                 .OrderBy(x => x.Item1)
                 .Select(x => x.Item2)
                 .OrderBy(x => 1);
+        }
+
+        /// <summary>
+        /// Order <paramref name="source"/> by <paramref name="priorities"/>.<para/>
+        /// Uses <seealso cref="OrderByPriority{TSource, TKey}(IEnumerable{TSource}, Func{TSource, TKey}, IEnumerable{TKey})"/> internally.
+        ///
+        /// <example>
+        /// <code>
+        ///
+        /// <para/>// Simple code example
+        /// <para/>var types = new string[] { "SUPER LOW", "LOW", "HIGH", "SUPER SUPER LOW", "MEDIUM" };
+        /// <para/>var output = types.OrderByPriority(x => x, "HIGH", "MEDIUM", "LOW").ToArray();
+        /// <para/>// output: "HIGH", "MEDIUM", "LOW", "SUPER LOW", "SUPER SUPER LOW"
+        ///
+        /// </code>
+        /// </example>
+        ///
+        /// Throw <see cref="ArgumentNullException"/> when <paramref name="source"/> or <paramref name="keySelector"/> or <paramref name="priorities"/> is <see langword="null" />.<para/>
+        /// Throw <see cref="ArgumentException"/> when <paramref name="priorities"/> contain duplicate values.
+        /// </summary>
+        ///
+        /// <remarks>
+        /// StackOverflow answers:<para/>
+        /// * <see href="https://stackoverflow.com/questions/12199668/in-c-what-is-the-best-way-to-sort-a-list-of-objects-by-a-string-property-and-g">Order by property name (string)</see><para/>
+        /// * <see href="https://stackoverflow.com/questions/42550992/c-sharp-sort-list-by-enum/77618384#77618384">Order list by enum</see><para/>
+        ///
+        /// See also on <see href="https://github.com/kurnakovv/PriorityOrder/wiki/PriorityEnumerable.OrderByPriority(IEnumerable-priorities)">GitHub</see>
+        /// </remarks>
+        ///
+        /// <typeparam name="TSource"><paramref name="source"/> type.</typeparam>
+        /// <typeparam name="TKey">The type of the key returned by <paramref name="keySelector"/>.</typeparam>
+        /// <param name="source">A sequence of values to order.</param>
+        /// <param name="keySelector">A function to extract a key from an element.</param>
+        /// <param name="priorities">Elements that determine the order of enumerable.</param>
+        ///
+        /// <returns>New ordered enumerable by <paramref name="priorities"/>.</returns>
+        ///
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public static IOrderedEnumerable<TSource> OrderByPriority<TSource, TKey>(
+            this IEnumerable<TSource> source,
+            Func<TSource, TKey> keySelector,
+            params TKey[] priorities
+        )
+        {
+            return source.OrderByPriority(keySelector, priorities.ToList());
         }
     }
 }
