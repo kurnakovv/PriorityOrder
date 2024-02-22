@@ -49,6 +49,7 @@ var priorities = new List<string>()
     // After "Manager" order doesn't matter anymore.
 };
 List<Employee> result = source.OrderByPriority(x => x.Role, priorities).ToList();
+
 // result:
 // Role: 'Programmer', Name: 'Huxley'
 // Role: 'Programmer', Name: 'Tom'
