@@ -18,6 +18,52 @@ PriorityOrder is an open source library that allows to order enumerable by prior
 dotnet add package Kurnakov.PriorityOrder
 ```
 
+# Idea
+``` cs
+public class Employee
+{
+    public string Name { get; set; }
+    public string Role { get; set; }
+}
+
+var source = new List<Employee>
+{
+    new Employee() { Name = "Willow", Role = "Manager" },
+    new Employee() { Name = "Huxley", Role = "Programmer" },
+    new Employee() { Name = "Tom", Role = "Programmer" },
+    new Employee() { Name = "Sutton", Role = "Tester" },
+    new Employee() { Name = "Lev", Role = "HR"  },
+    new Employee() { Name = "Max", Role = "Programmer" },
+    new Employee() { Name = "Bob", Role = "Manager" },
+    new Employee() { Name = "Jack", Role = "Tester" },
+    new Employee() { Name = "Ruby", Role = "Manager" },
+    new Employee() { Name = "Willow", Role = "Accountant"  },
+};
+
+// For example, you want to order employees by these specific priorities (not alphabetically).
+var priorities = new List<string>()
+{
+    "Programmer",
+    "Tester",
+    "Manager",
+    // After "Manager" order doesn't matter anymore.
+};
+List<Employee> result = source.OrderByPriority(x => x.Role, priorities).ToList();
+
+// result:
+// Role: 'Programmer', Name: 'Huxley'
+// Role: 'Programmer', Name: 'Tom'
+// Role: 'Programmer', Name: 'Max'
+// Role: 'Tester', Name: 'Sutton'
+// Role: 'Tester', Name: 'Jack'
+// Role: 'Manager', Name: 'Willow'
+// Role: 'Manager', Name: 'Bob'
+// Role: 'Manager', Name: 'Ruby'
+// Role: 'HR', Name: 'Lev'
+// Role: 'Accountant', Name: 'Willow'
+```
+> Besides strings you can use enum's, numbers etc (more details you can read on [Wiki](https://github.com/kurnakovv/PriorityOrder/wiki))
+
 # Docs
 You can look at the full docs on [Wiki](https://github.com/kurnakovv/PriorityOrder/wiki)
 * [PriorityEnumerable.OrderByPriority(IEnumerable priorities)](https://github.com/kurnakovv/PriorityOrder/wiki/PriorityEnumerable.OrderByPriority(IEnumerable-priorities))
