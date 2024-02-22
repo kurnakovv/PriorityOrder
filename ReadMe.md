@@ -20,6 +20,8 @@ dotnet add package Kurnakov.PriorityOrder
 
 # Idea
 ``` cs
+using PriorityOrder;
+
 public class Employee
 {
     public string Name { get; set; }
@@ -48,17 +50,20 @@ var priorities = new List<string>()
     "Manager",
     // After "Manager" order doesn't matter anymore.
 };
-List<Employee> result = source.OrderByPriority(x => x.Role, priorities).ToList();
+List<Employee> result = source
+    .OrderByPriority(x => x.Role, priorities)
+    .ThenBy(x => x.Name) // Optional.
+    .ToList();
 
 // result:
 // Role: 'Programmer', Name: 'Huxley'
-// Role: 'Programmer', Name: 'Tom'
 // Role: 'Programmer', Name: 'Max'
-// Role: 'Tester', Name: 'Sutton'
+// Role: 'Programmer', Name: 'Tom'
 // Role: 'Tester', Name: 'Jack'
-// Role: 'Manager', Name: 'Willow'
+// Role: 'Tester', Name: 'Sutton'
 // Role: 'Manager', Name: 'Bob'
 // Role: 'Manager', Name: 'Ruby'
+// Role: 'Manager', Name: 'Willow'
 // Role: 'HR', Name: 'Lev'
 // Role: 'Accountant', Name: 'Willow'
 ```
