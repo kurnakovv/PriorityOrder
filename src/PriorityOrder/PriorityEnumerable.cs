@@ -77,25 +77,11 @@ namespace PriorityOrder
             {
                 priorityDict.Add(priorities.ElementAt(i), i);
             }
-            List<TKey> keys = source
-                .Select(keySelector)
-                .OrderBy(x =>
-                    priorityDict.TryGetValue(x, out int value)
-                        ? value
-                        : priorityDict.Count + 1
-                )
-                .ToList();
-            var result = new List<Tuple<int, TSource>>();
-            foreach (TSource item in source)
-            {
-                TKey key = keySelector(item);
-                int index = keys.FindIndex(x => EqualityComparer<TKey>.Default.Equals(x, key));
-                result.Add(new Tuple<int, TSource>(index, item));
-            }
-            return result
-                .OrderBy(x => x.Item1)
-                .Select(x => x.Item2)
-                .OrderBy(x => 1);
+            return source.OrderBy(x =>
+                priorityDict.TryGetValue(keySelector(x), out int value)
+                    ? value
+                    : priorityDict.Count + 1
+            );
         }
 
         /// <summary>
