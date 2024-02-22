@@ -148,6 +148,27 @@ namespace PriorityOrder.UnitTests
         }
 
         [Fact]
+        public void OrderByPriority_ThenByDoNotBreakPreviosLogic_OrderedEnumerableWithThenBy()
+        {
+            IEnumerable<string> priorities = new List<string>()
+            {
+                "First category",
+                "Second category",
+                "Third category"
+            };
+
+            List<Driver> result = _source
+                .OrderByPriority(x => x.CategoryString, priorities)
+                .ThenBy(x => x.Name)
+                .ToList();
+
+            Assert.True(result.Take(3).All(x => x.CategoryString == "First category"));
+            Assert.True(result.Skip(3).Take(3).All(x => x.CategoryString == "Second category"));
+            Assert.True(result.Skip(6).Take(3).All(x => x.CategoryString == "Third category"));
+            Assert.True(result.Last().CategoryString == "None");
+        }
+
+        [Fact]
         public void OrderByPriority_CanOrderByStringParams_OrderedEnumerable()
         {
             IEnumerable<string> source = new List<string> { "SUPER LOW", "LOW", "HIGH", "SUPER SUPER LOW", "MEDIUM" };
