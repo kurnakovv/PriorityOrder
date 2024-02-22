@@ -14,7 +14,9 @@
 PriorityOrder is an open source library that allows to order enumerable by priority.
 
 # Install
-`dotnet add package Kurnakov.PriorityOrder`
+```
+dotnet add package Kurnakov.PriorityOrder
+```
 
 # Docs
 You can look at the full docs on [Wiki](https://github.com/kurnakovv/PriorityOrder/wiki)
