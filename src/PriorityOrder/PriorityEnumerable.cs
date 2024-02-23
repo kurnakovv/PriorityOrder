@@ -106,7 +106,7 @@ namespace PriorityOrder
         /// <remarks>
         /// StackOverflow answers:<para/>
         /// * <see href="https://stackoverflow.com/questions/12199668/in-c-what-is-the-best-way-to-sort-a-list-of-objects-by-a-string-property-and-g/78045482#78045482">Order by property name (string)</see><para/>
-        /// * <see href="https://stackoverflow.com/questions/42550992/c-sharp-sort-list-by-enum/77618384#77618384">Order list by enum</see><para/>
+        /// * <see href="https://stackoverflow.com/questions/42550992/c-sharp-sort-list-by-enum/77618384#77618384">Order list by property name (enum)</see><para/>
         ///
         /// See also on <see href="https://github.com/kurnakovv/PriorityOrder/wiki/PriorityEnumerable.OrderByPriority(IEnumerable-priorities)">GitHub</see>
         /// </remarks>
