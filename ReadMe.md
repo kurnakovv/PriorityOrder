@@ -69,6 +69,10 @@ List<Employee> result = source
 ```
 > Besides strings you can use enum's, numbers etc (more details you can read on [Wiki](https://github.com/kurnakovv/PriorityOrder/wiki))
 
+# StackOverflow
+* [Order by property name (string)](https://stackoverflow.com/questions/12199668/in-c-what-is-the-best-way-to-sort-a-list-of-objects-by-a-string-property-and-g/78045482#78045482)
+* [Order list by property name (enum)](https://stackoverflow.com/questions/42550992/c-sharp-sort-list-by-enum/77618384#77618384)
+
 # Docs
 You can look at the full docs on [Wiki](https://github.com/kurnakovv/PriorityOrder/wiki)
 * [PriorityEnumerable.OrderByPriority(IEnumerable priorities)](https://github.com/kurnakovv/PriorityOrder/wiki/PriorityEnumerable.OrderByPriority(IEnumerable-priorities))
