@@ -77,3 +77,6 @@ List<Employee> result = source
 You can look at the full docs on [Wiki](https://github.com/kurnakovv/PriorityOrder/wiki)
 * [PriorityEnumerable.OrderByPriority(IEnumerable priorities)](https://github.com/kurnakovv/PriorityOrder/wiki/PriorityEnumerable.OrderByPriority(IEnumerable-priorities))
 * [PriorityEnumerable.OrderByPriority(params[] priorities)](https://github.com/kurnakovv/PriorityOrder/wiki/PriorityEnumerable.OrderByPriority(params%5B%5D-priorities))
+
+# Give a star ⭐
+I hope this library is useful for you, if so please give a star for this repository, thank you :)
